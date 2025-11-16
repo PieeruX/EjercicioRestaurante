@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/page_inicio"
+        android:icon="@drawable/icon_inicio"
+        android:title="@string/item_title_inicio"
+        />
+
+    <item
+        android:id="@+id/page_restaurantes"
+        android:icon="@drawable/icon_visitado"
+        android:title="@string/item_title_visitados" />
+
+
+    <item
+        android:id="@+id/page_mapa"
+        android:icon="@drawable/icon_map"
+        android:title="@string/item_title_mapa" />
+
+    <item
+        android:id="@+id/page_acerca_de"
+        android:icon="@drawable/icon_acerca_de"
+        android:title="@string/item_title_acerca_de" />
+</menu>

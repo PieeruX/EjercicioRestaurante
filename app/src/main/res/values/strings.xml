@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">EjercicioRestaurante</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_fragment_pagina_inicio">Come y calla</string>
+    <string name="tv_restaurantes">Restaurantes</string>
+    <string name="tv_mapa">Mapa de restaurante</string>
+    <string name="item_title_inicio">Inicio</string>
+    <string name="item_title_visitados">Restaurantes</string>
+    <string name="item_title_mapa">Mapa</string>
+    <string name="item_title_acerca_de">Info</string>
+    <string name="map_id">7f6ba570e68a8572919f70f9</string>
+    <string name="title_map">Mapa Gastronómico</string>
+    <string name="btn_addRestuarante">Agregar Restaurante</string>
+    <string name="btn_visitados">Visitados</string>
+    <string name="btn_no_visitados">No Visitados</string>
+    <string name="tv_filtro">Filtro:</string>
+    <string name="tv_texto_acercade">Esta aplicación fue realizada para una gestión del gusto gastronómico personalizado, pudiendo agregar, puntuar y comentar sitios visitados por el usuario.
+        \n\nTambién tiene una \'lista de deseos\', que serían los restuarantes no visitados y que se puedan visitar en un futuro.
+        \n\nLa gestión de los restuarantes las realiza el usuario, pudiendo añadir, editar, eliminar y filtrar por preferencias.</string>
+    <string name="tv_title_acercade">Acerca de</string>
+    <string name="tv_infoApp_acrecade">Realizado por: Piera Merlo\nVersion 1.0\n\n© 2025 - Todos los derechos reservados</string>
+    <string name="tv_bienvenida">Bienvenido a ÑamApp</string>
+    <string name="tv_bienvenida_subtitle">¡Bienvenida a tu guía gastronómica personal!</string>
+    <string name="hint_comentario">Escirbe un comentario...</string>
+    <string name="btn_form_guardar">Guardar</string>
+    <string name="btn_form_cancelar">Cancelar</string>
+    <string name="tittle_form">Formulario de Restaurante</string>
+    <string name="hint_form_nombre">Nombre restuarante</string>
+    <string name="hint_form_tlfn">Telefono</string>
+    <string name="hint_form_direccion">Dirección</string>
+    <string name="rbtn_form_restaurante">Restuarante</string>
+    <string name="rbtn_form_bar">Bar</string>
+    <string name="txt_form_switch">Visitado</string>
+    <string name="tv_titlle_detalles">Detalles del restaurante</string>
+    <string name="tv_comentario_detalles">Comentario</string>
+    <string name="btn_filtro_res">Rest</string>
+    <string name="btn_filtro_todos">Todos</string>
+    <string name="btn_filtro_bar">Bar</string>
+    <string name="txt_filtro_puntuacion">Filtro por Estrellas:</string>
+    <string name="txt_hint_filtro">Buscar por nombre...</string>
+
+
+</resources>

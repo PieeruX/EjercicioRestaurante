@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background_app">#2C3E50</color>
+    <color name="color_texto">#FDEBD0</color>
+    <color name="color_hint">#8DFFFFFF</color>
+    <color name="naranja_componentes">#D35400</color>
+    <color name="color_inactivo">#45576C</color>
+    <color name="ripple_color">#2CE0E0E0</color>
+</resources>

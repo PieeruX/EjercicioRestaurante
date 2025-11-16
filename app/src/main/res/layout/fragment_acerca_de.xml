@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_app"
+    tools:context=".ui.fragments.AcercaDeFragment">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="410dp"
+            android:alpha="0.1"
+            android:scaleType="fitCenter"
+            android:layout_gravity="top"
+            android:src="@drawable/background_food"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="410dp"
+            android:src="@drawable/background_food"
+            android:scaleType="fitCenter"
+            android:layout_gravity="bottom"
+            android:alpha="0.1"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_titleAcrecade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/color_texto"
+        android:text="@string/tv_title_acercade"
+        android:textStyle="bold"
+        android:fontFamily="@font/anton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_textoAcrecade"
+        />
+
+    <TextView
+        android:id="@+id/tv_textoAcrecade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_texto"
+        android:text="@string/tv_texto_acercade"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/anton"
+        android:layout_marginHorizontal="30dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titleAcrecade"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_infoApp_acercade"
+        />
+
+    <TextView
+        android:id="@+id/tv_infoApp_acercade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:text="@string/tv_infoApp_acrecade"
+        android:textColor="@color/color_texto"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_textoAcrecade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

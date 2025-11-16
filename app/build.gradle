@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+}
+
+android {
+    namespace 'com.pierux.ejerciciorestaurante'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.pierux.ejerciciorestaurante"
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_14
+        targetCompatibility JavaVersion.VERSION_14
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+secrets {
+    // Archivo con clave API
+    propertiesFileName = "secrets.properties"
+
+    // Archivo de respaldo
+    defaultPropertiesFileName = "local.defaults.properties"
+}
+
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.activity:activity:1.11.0'
+    implementation 'androidx.navigation:navigation-fragment:2.7.2'
+    implementation 'androidx.navigation:navigation-ui:2.7.2'
+
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:1.4.0"
+
+    //CardView
+    implementation "androidx.cardview:cardview:1.0.0"
+
+    // Splash Screen
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+
+    // Lottie Animations
+    implementation "com.airbnb.android:lottie:6.4.0"
+
+    // Google Maps y Location
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+    implementation 'com.google.android.gms:play-services-location:21.3.0'
+
+    //Google Places
+    implementation 'com.google.android.libraries.places:places:3.5.0'
+
+    //Utilidades Maps
+    implementation "com.google.maps.android:maps-utils-ktx:5.0.0"
+
+    implementation libs.google.material
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+}
+

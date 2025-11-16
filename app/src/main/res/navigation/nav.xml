@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/page_inicio">
+    <fragment
+        android:id="@+id/page_inicio"
+        android:name="com.pierux.ejerciciorestaurante.ui.fragments.InicioFragment"
+        tools:layout="@layout/fragment_inicio"/>
+
+    <fragment
+        android:id="@+id/page_restaurantes"
+        android:name="com.pierux.ejerciciorestaurante.ui.fragments.RestaurantesFragment"
+        tools:layout="@layout/fragment_restuarantes"/>
+
+
+    <fragment
+        android:id="@+id/page_mapa"
+        android:name="com.pierux.ejerciciorestaurante.ui.fragments.MapaFragment"
+        tools:layout="@layout/fragment_mapa"/>
+
+    <fragment
+        android:id="@+id/page_acerca_de"
+        android:name="com.pierux.ejerciciorestaurante.ui.fragments.AcercaDeFragment"
+        tools:layout="@layout/fragment_acerca_de"/>
+
+
+</navigation>

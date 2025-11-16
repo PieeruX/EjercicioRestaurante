@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Estado: Cuando el botón está ACTIVADO, el borde será de tu color naranja -->
+    <item android:state_activated="true" android:color="#D35400" /> <!-- Tu color naranja -->
+
+    <!-- Estado por defecto (inactivo), el borde tendrá el color normal que ya usabas -->
+    <item android:color="@color/color_texto" /> <!-- Asegúrate que este es el color que usas para el texto/borde -->
+
+</selector>
+    

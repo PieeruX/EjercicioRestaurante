@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/allerta_stencil</item>
+        <item>@font/angkor</item>
+        <item>@font/anton</item>
+        <item>@font/archivo_black</item>
+        <item>@font/aref_ruqaa_bold</item>
+        <item>@font/bebas_neue</item>
+        <item>@font/bowlby_one</item>
+        <item>@font/ceviche_one</item>
+        <item>@font/changa_one</item>
+        <item>@font/playfair_display_black</item>
+        <item>@font/rubik_moonrocks</item>
+        <item>@font/sansita</item>
+        <item>@font/sansita_bold</item>
+    </array>
+</resources>

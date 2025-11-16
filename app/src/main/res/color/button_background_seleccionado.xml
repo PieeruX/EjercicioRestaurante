@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Estado: Cuando el botón está ACTIVADO (state_activated="true"), usa un color semitransparente -->
+    <item android:state_activated="true" android:color="#33FFFFFF" /> <!-- Blanco al 20% de opacidad -->
+
+    <!-- Estado por defecto (inactivo), el fondo será totalmente transparente -->
+    <item android:color="@android:color/transparent" />
+
+</selector>
+    

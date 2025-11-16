@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    tools:context=".ui.fragments.NoVisitadosFragment">
+
+    <LinearLayout
+        android:id="@+id/contenedorFiltrosNoVisitados"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFiltroTodosNoVisitados"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_filtro_todos"
+                android:textColor="@color/white"
+                app:iconTint="@color/white"
+                app:rippleColor="@color/ripple_color"
+                app:strokeColor="@color/buttom_color_borde_seleccionado"
+                app:backgroundTint="@color/button_background_seleccionado"
+                android:layout_marginEnd="4dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFiltroResNoVisitado"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:rippleColor="@color/ripple_color"
+                android:text="@string/btn_filtro_res"
+                android:textColor="@color/white"
+                app:icon="@drawable/img_restuarante1"
+                app:iconTint="@color/white"
+                app:strokeColor="@color/buttom_color_borde_seleccionado"
+                app:backgroundTint="@color/button_background_seleccionado"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFiltroBarNoVisitao"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:rippleColor="@color/ripple_color"
+                android:text="@string/btn_filtro_bar"
+                android:textColor="@color/white"
+                app:strokeColor="@color/buttom_color_borde_seleccionado"
+                app:backgroundTint="@color/button_background_seleccionado"
+                app:icon="@drawable/bar"
+                app:iconTint="@color/white"
+                android:layout_marginStart="4dp"/>,
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/etFiltroNombreNoVisitado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_hint_filtro"
+            android:textColor="@color/white"
+            android:textColorHint="@color/color_hint"
+            android:backgroundTint="@color/color_texto"
+            android:inputType="text"
+            android:maxLines="1"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewNoVisitados"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        android:layout_below="@+id/contenedorFiltrosNoVisitados"/>
+
+</RelativeLayout>

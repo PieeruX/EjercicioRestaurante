@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tituloFormulario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/anton"
+        android:gravity="center"
+        android:text="@string/tittle_form"
+        android:textColor="@color/color_texto"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etNombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgNombre"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/baseline_restaurant_24"
+        app:layout_constraintBottom_toTopOf="@+id/imgTelefono"
+        app:layout_constraintEnd_toStartOf="@+id/etNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloFormulario"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imgTelefono"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/baseline_phone_24"
+        app:layout_constraintBottom_toTopOf="@+id/imgDireccion"
+        app:layout_constraintEnd_toStartOf="@+id/etTelefono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgNombre"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imgDireccion"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/baseline_location_pin_24"
+        app:layout_constraintBottom_toTopOf="@+id/puntuacion"
+        app:layout_constraintEnd_toStartOf="@+id/etDireccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgTelefono"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imgPuntuacion"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/baseline_star_24"
+        app:layout_constraintBottom_toTopOf="@+id/rg_escogerTipo"
+        app:layout_constraintEnd_toStartOf="@+id/puntuacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgDireccion"
+        app:tint="@color/white" />
+
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_texto"
+        android:ems="10"
+        android:maxLines="1"
+        android:hint="@string/hint_form_nombre"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/color_texto"
+        app:layout_constraintBottom_toTopOf="@+id/etTelefono"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tituloFormulario" />
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_texto"
+        android:ems="10"
+        android:hint="@string/hint_form_tlfn"
+        android:maxLength="9"
+        android:inputType="phone"
+        android:textColor="@color/white"
+        android:textColorHint="@color/color_texto"
+        app:layout_constraintBottom_toTopOf="@+id/etDireccion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgTelefono"
+        app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+
+
+        <AutoCompleteTextView
+        android:id="@+id/etDireccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_texto"
+        android:ems="10"
+        android:hint="@string/hint_form_direccion"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/color_texto"
+        app:layout_constraintBottom_toTopOf="@+id/puntuacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgDireccion"
+        app:layout_constraintTop_toBottomOf="@+id/etTelefono" />
+
+    <RatingBar
+        android:id="@+id/puntuacion"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:progressBackgroundTint="@color/white"
+        android:progressTint="@color/white"
+        android:stepSize="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/rg_escogerTipo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgPuntuacion"
+        app:layout_constraintTop_toBottomOf="@+id/etDireccion" />
+
+    <RadioGroup
+        android:id="@+id/rg_escogerTipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/switchVisitado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/puntuacion">
+
+        <RadioButton
+            android:id="@+id/rbtn_restaurante"
+            style="@style/RadioButtonBlanco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:checked="true"
+            android:text="@string/rbtn_form_restaurante" />
+
+        <RadioButton
+            android:id="@+id/rbtn_bar"
+            style="@style/RadioButtonBlanco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="@string/rbtn_form_bar" />
+    </RadioGroup>
+
+    <Switch
+        android:id="@+id/switchVisitado"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:fontFamily="@font/anton"
+        android:showText="true"
+        android:text="@string/txt_form_switch"
+        android:textColor="@color/white"
+        android:textOff="No"
+        android:textOn="Sí"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/etComentario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rg_escogerTipo" />
+    <EditText
+        android:id="@+id/etComentario"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/anton"
+        android:maxLength="200"
+        android:hint="@string/hint_comentario"
+        android:textSize="12sp"
+        android:backgroundTint="@color/white"
+        android:gravity="top|start"
+        android:textColorHint="@color/color_hint"
+        app:layout_constraintTop_toBottomOf="@+id/switchVisitado"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/anton"
+        android:text="@string/btn_form_guardar"
+        android:textColor="@color/background_app"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnCancelar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etComentario" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/anton"
+        android:text="@string/btn_form_cancelar"
+        android:textColor="@color/background_app"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnGuardar"
+        app:layout_constraintTop_toBottomOf="@+id/etComentario" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,66 @@
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Base.Theme.EjercicioRestaurante" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="Theme.EjercicioRestaurante" parent="Base.Theme.EjercicioRestaurante" />
+
+    <!-- Tema para la pantalla de inicio -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- Fondo del splash -->
+        <item name="windowSplashScreenBackground">@color/white</item>
+
+        <!-- Icono o animación personalizada -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_animation</item>
+
+        <!-- Duración de la salida del splash -->
+        <item name="windowSplashScreenAnimationDuration">3000</item>
+
+        <!-- Evita el logo por defecto de Android -->
+        <item name="android:windowDisablePreview">true</item>
+
+        <!-- Quita la barra superior -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+        <!-- Tema a aplicar tras el splash -->
+        <item name="postSplashScreenTheme">@style/Theme.EjercicioRestaurante</item>
+    </style>
+
+    <!-- Estilo para hacer el indicador de la barra de navegación más pequeño -->
+    <style name="Custom.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">40dp</item>
+        <item name="android:height">40dp</item>
+        <item name="marginHorizontal">16dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.SmallComponent</item>
+    </style>
+
+    <!-- Estilo para los RadioButton en color blanco -->
+    <style name="RadioButtonBlanco" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/anton</item>
+        <item name="android:textStyle">bold</item>
+        <item name="buttonTint">@color/white</item>
+        <item name="android:buttonTint">@color/white</item>
+    </style>
+
+    <!-- Estilo para el RatingBar -->
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">#FFC107</item>
+        <item name="colorControlNormal">#8A8A8A</item>
+    </style>
+
+    <!-- Estilo personalizado para la etiqueta flotante del Slider -->
+    <style name="sliderLabel" parent="Widget.MaterialComponents.Tooltip">
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+
+
+
+
+
+
+</resources>
+
