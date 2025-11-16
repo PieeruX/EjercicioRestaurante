@@ -26,16 +26,6 @@ public class RestaurantesFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        if (toggleGroup.getCheckedButtonId() != R.id.btnVisitados) {
-            toggleGroup.check(R.id.btnVisitados);
-        }
-    }
-
-
-    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -58,6 +48,15 @@ public class RestaurantesFragment extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (toggleGroup.getCheckedButtonId() != R.id.btnVisitados) {
+            toggleGroup.check(R.id.btnVisitados);
+        }
     }
 
     private void cambiarFragment(Fragment fragment) {
