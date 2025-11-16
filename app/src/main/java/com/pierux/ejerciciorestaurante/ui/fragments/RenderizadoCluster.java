@@ -16,33 +16,30 @@ import com.pierux.ejerciciorestaurante.model.ItemsCard;
 
 class RenderizadorCluster extends DefaultClusterRenderer<ItemsCard> {
 
-    // 1. Declaramos los dos posibles iconos que usaremos.
     private final BitmapDescriptor iconoVisitado;
     private final BitmapDescriptor iconoNoVisitado;
 
+    /**
+     * Constructor, carga y redimensiona los iconos
+     * @param context El contexto de la aplicación
+     * @param map mapa donde va a dibujar
+     * @param clusterManager
+     */
     public RenderizadorCluster(Context context, GoogleMap map, ClusterManager<ItemsCard> clusterManager) {
         super(context, map, clusterManager);
 
-        // 2. Pre-cargamos y redimensionamos ambos iconos UNA SOLA VEZ
-        //    para que la app sea muy eficiente.
-        int anchoIcono = 120; // Juega con este valor si son muy grandes o pequeños
+        int anchoIcono = 120;
         int altoIcono = 120;
 
-        // Cargar y preparar el icono para "NO VISITADO"
         iconoNoVisitado = crearIconoRedimensionado(context, R.drawable.pin_no_visitado, anchoIcono, altoIcono);
-
-        // Cargar y preparar el icono para "VISITADO"
         iconoVisitado = crearIconoRedimensionado(context, R.drawable.pin_visitado, anchoIcono, altoIcono);
     }
 
     /**
-     * 3. ¡AQUÍ ESTÁ LA LÓGICA PRINCIPAL!
-     *    Este método se llama para cada marcador y decide qué icono ponerle.
+     * Método que personaliza cada marcador con su categoria
      */
     @Override
     protected void onBeforeClusterItemRendered(@NonNull ItemsCard item, @NonNull MarkerOptions markerOptions) {
-
-        // Comprobamos el estado booleano del restaurante
         if (item.isVisitado()) {
             markerOptions.icon(iconoVisitado);
         } else {
@@ -54,18 +51,21 @@ class RenderizadorCluster extends DefaultClusterRenderer<ItemsCard> {
     }
 
     /**
-     * Método de utilidad para no repetir código.
-     * Carga una imagen, la redimensiona y la devuelve lista para usar.
+     * Convierte las imagenes a bitmap para que pueda ser interpetado por Google Maps
+     * de forma correcta
      */
     private BitmapDescriptor crearIconoRedimensionado(Context context, int idRecurso, int ancho, int alto) {
+
         Drawable drawableIcono = ContextCompat.getDrawable(context, idRecurso);
+
+        //Creamos el "lienzo" vacio con las dimensiones de nuestra imagen
         Bitmap bitmapIcono = Bitmap.createBitmap(drawableIcono.getIntrinsicWidth(), drawableIcono.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
         android.graphics.Canvas canvas = new android.graphics.Canvas(bitmapIcono);
         drawableIcono.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawableIcono.draw(canvas);
+
+        //Se crea el bitMap redimensionado al formato de Google Maps y se devuelve
         Bitmap smallMarker = Bitmap.createScaledBitmap(bitmapIcono, ancho, alto, false);
         return BitmapDescriptorFactory.fromBitmap(smallMarker);
     }
 }
-
-
