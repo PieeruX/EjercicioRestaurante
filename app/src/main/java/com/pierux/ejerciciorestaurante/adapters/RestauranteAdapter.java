@@ -58,7 +58,7 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
      */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bindData(restuaranteData.get(position));
+        holder.rellenarDatosCard(restuaranteData.get(position));
     }
 
     /**
@@ -86,7 +86,7 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
      * Molde para cada tarjeta de restaurante.
      */
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nombre, telefono, direccion, tvPuntuacion;
+        TextView nombre, telefono, direccion;
         ImageView img;
         RatingBar ratingBar;
         ImageButton btnEditar, btnEliminar;
@@ -127,40 +127,36 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
+                    if (position != -1) {
                         //Accion para confirmar eliminación
-                        DialogInterface.OnClickListener accion = new DialogInterface.OnClickListener(){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setTitle("Confirmar eliminación");
+                        builder.setMessage("¿Eliminar '" + restuaranteData.get(position).getNombre() + "'?");
+                        builder.setIcon(R.drawable.baseline_delete_24);
+
+                        builder.setPositiveButton("Sí, eliminar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 int idEliminar = restuaranteData.get(position).getId();
                                 dao.eliminarRestaurante(idEliminar);
                                 eliminarItem(position);
-                                Toast.makeText(context, "Restaurante eliminado", Toast.LENGTH_LONG).show();
-
+                                Toast.makeText(context, "Restaurante eliminado", Toast.LENGTH_SHORT).show();
                             }
-                        };
+                        });
 
-                        //Creamos la Alerta para confirmar eliminación
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setTitle("Confirmar eliminación");
-                        builder.setMessage("¿Estás seguro de que quieres eliminar '" + restuaranteData.get(position).getNombre() + "'?");
-                        builder.setIcon(R.drawable.baseline_delete_24);
-                        builder.setPositiveButton("Sí, eliminar", accion);
                         builder.setNegativeButton("No", null);
-
-                        //Creamos y mostramos el diálogo.
-                        AlertDialog mostrarAlerta = builder.create();
-                        mostrarAlerta.show();
+                        builder.show();
 
                     }
                 }
             });
 
+            //Listener a toda la viewCard
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
+                    if (position != -1) {
                         int restauranteId = restuaranteData.get(position).getId();
                         Intent intent = new Intent(context, DetalleActivity.class);
 
@@ -176,7 +172,7 @@ public class RestauranteAdapter extends RecyclerView.Adapter<RestauranteAdapter.
          * Rellena los datos de la tarjeta con la información del restaurante.
          * @param item Objeto con la información del restaurante.
          */
-        public void bindData(ItemsCard item) {
+        public void rellenarDatosCard(ItemsCard item) {
             nombre.setText(item.getNombre());
             telefono.setText(item.getTelefono());
             direccion.setText(item.getDireccion());

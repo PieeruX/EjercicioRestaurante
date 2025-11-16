@@ -121,14 +121,19 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
         if (mMap != null || getContext() != null){
             clusterManager = new ClusterManager<>(requireContext(), mMap);
 
+            // Le dices al ClusterManager cómo debe dibujar los marcadores y clústeres.
             RenderizadorCluster renderizador = new RenderizadorCluster(getContext(), mMap, clusterManager);
             clusterManager.setRenderer(renderizador);
 
+            //Cuando el mapa está quieto, se actualiza
             mMap.setOnCameraIdleListener(clusterManager);
+
+            //Gestiona los clicks del usuario en los marcadores
             mMap.setOnMarkerClickListener(clusterManager);
 
             clusterManager.setOnClusterItemClickListener(this);
 
+            //Si hacemos click en cualquier parte del mapa, oculta la tarjeta visible
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(@NonNull LatLng latLng) {
@@ -146,7 +151,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
                     LatLng posicion = getLatLngDeDireccion(restaurante.getDireccion());
                     if (posicion != null) {
                         restaurante.setPosicion(posicion);
-                        clusterManager.addItem(restaurante); // Solo añadimos al manager
+                        clusterManager.addItem(restaurante);
                     } else {
                         Log.w(TAG, "No se encontraron coordenadas para: " + restaurante.getDireccion());
                     }
@@ -155,8 +160,6 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
 
 
         }
-
-
 
     }
 
@@ -172,11 +175,12 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
             List<Address> addresses = geocoder.getFromLocationName(direccion, 1);
             if (addresses != null && !addresses.isEmpty()) {
                 Address address = addresses.get(0);
+
                 // Si la encuentra, crea y devuelve un objeto LatLng con las coordenadas.
                 latLng =  new LatLng(address.getLatitude(), address.getLongitude());
             }
         } catch (IOException e) {
-            // Si hay un error de red o de otro tipo, lo mostramos en el Logcat.
+            // Mostramos en LogCat
             Log.e(TAG, "Error de geocodificación para la dirección: " + direccion, e);
         }
 
@@ -226,6 +230,15 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
             }
         });
     }
+
+
+    /**
+     * Método que muestra los detalles en la tarjeta de informacion en el mapa y
+     * lo mueve para no ocultar el marcador
+     * @param restaurante
+     *
+     * @return
+     */
     @Override
     public boolean onClusterItemClick(ItemsCard restaurante) {
 
@@ -243,6 +256,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
 
         LatLng posicion = restaurante.getPosition();
 
+        //Mandar la ubicacion a google Maps
         btnMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -251,12 +265,11 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
                 Uri gmmIntentUri = Uri.parse(uri);
                 Intent intent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
 
-
-
                 startActivity(intent);
             }
         });
 
+        //Mueve la camara para que cuando salga la card no tape el marcador pulsado
         mMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(
                 restaurante.getPosition().latitude + 0.0025,
                 restaurante.getPosition().longitude

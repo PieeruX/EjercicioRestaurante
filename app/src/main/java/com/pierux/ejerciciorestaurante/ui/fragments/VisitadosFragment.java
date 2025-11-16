@@ -90,6 +90,7 @@ public class VisitadosFragment extends Fragment {
             }
         });
 
+        //Listener que trae los valores min y max que aplica el usuario
         slider.addOnChangeListener(new RangeSlider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull RangeSlider rangeSlider, float value, boolean fromUser) {
@@ -102,6 +103,7 @@ public class VisitadosFragment extends Fragment {
             }
         });
 
+        //Listener que se activa al pasar un caracter
         etFiltro.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {}
@@ -110,8 +112,8 @@ public class VisitadosFragment extends Fragment {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                textoFiltro = s.toString();
+            public void onTextChanged(CharSequence input, int start, int before, int count) {
+                textoFiltro = input.toString();
                 aplicarFiltrosCombinados();
             }
         });
@@ -125,16 +127,17 @@ public class VisitadosFragment extends Fragment {
         cargarVisitados();
     }
 
-
-
-
+    /**
+     * Método que filtra la lista según los
+     * filtros selccionados por el usuario (categoria, rango de estrellas y texto)
+     */
     private void aplicarFiltrosCombinados() {
         List<ItemsCard> soloVisitados = sacarVisitados();
         List<ItemsCard> filtradoFinal = new ArrayList<>();
 
         for (ItemsCard card: soloVisitados){
-
             if (card.getNombre().toLowerCase().contains(textoFiltro.toLowerCase())){
+
                 boolean filtroCategoria = categoriaSeleccionada.equalsIgnoreCase("Todas")
                         || card.getCategoria().equalsIgnoreCase(categoriaSeleccionada);
 
@@ -153,7 +156,9 @@ public class VisitadosFragment extends Fragment {
 
     }
 
-
+    /**
+     * Método que carga la lista de sitios visitados y sean visibles
+     */
     private void cargarVisitados() {
         listaRestaurantes.clear();
         List<ItemsCard> soloVisitados = sacarVisitados();
@@ -162,6 +167,10 @@ public class VisitadosFragment extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     * Método que llama al dao y crea una lista de los sitios viistados
+     * @return lista de visitados
+     */
     @NonNull
     private List<ItemsCard> sacarVisitados() {
         List<ItemsCard> todosLosRestaurantes = dao.obtenerTodos();
@@ -175,6 +184,9 @@ public class VisitadosFragment extends Fragment {
         return soloVisitados;
     }
 
+    /**
+     * Método que cambia la apariencia del boton al ser pulsado
+     */
     private void actualizarAparienciaBotones() {
         btnTodos.setActivated(false);
         btnBar.setActivated(false);

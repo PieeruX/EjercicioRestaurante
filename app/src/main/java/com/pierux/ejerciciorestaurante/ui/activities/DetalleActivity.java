@@ -71,11 +71,9 @@ public class DetalleActivity extends AppCompatActivity {
             restaurante = dao.obtenerPorId(restauranteId);
             if (restaurante != null) {
                 cargarDatos();
-
             }else{
                 Toast.makeText(this, "Error: No se encontró el restaurante.", Toast.LENGTH_LONG).show();
                 finish();
-
             }
         }else{
             Toast.makeText(this, "Error: ID no válido.", Toast.LENGTH_LONG).show();
@@ -102,7 +100,6 @@ public class DetalleActivity extends AppCompatActivity {
     private void llamar() {
         String numero = restaurante.getTelefono();
         if (ActivityCompat.checkSelfPermission(this, CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-
             solicitarPermiso();
         }else {
             mostrarDialogoDeConfirmacion(numero);
@@ -110,26 +107,28 @@ public class DetalleActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Método que muestra un dialogo de confirmación para realizar la llamada
+     * @param numero telefono
+     */
     private void mostrarDialogoDeConfirmacion(String numero) {
-        new AlertDialog.Builder(this)
-                .setTitle("Confirmar Llamada") // Título del diálogo
-                .setMessage("¿Estás seguro de que quieres llamar a " + restaurante.getNombre() + "?")
-                .setPositiveButton("Llamar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent(Intent.ACTION_CALL);
-                        i.setData(Uri.parse("tel:" + numero));
-                        startActivity(i);
-                    }
-                })
-                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .create()
-                .show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirmar Llamada");
+        builder.setMessage("¿Estás seguro de que quieres llamar a " + restaurante.getNombre() + "?");
+
+        builder.setPositiveButton("Llamar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:" + numero));
+                startActivity(intent);
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", null);
+
+        builder.show();
+
     }
 
 
@@ -138,6 +137,8 @@ public class DetalleActivity extends AppCompatActivity {
 
     }
 
+    //Recibe resultado de la solicitud de permisos, si el usuario lo ha dado se reintenta la llamada,
+    //sino salta un mensaje
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

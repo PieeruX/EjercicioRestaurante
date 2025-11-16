@@ -17,7 +17,6 @@ public class SplashActivity extends ComponentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
-
         LottieAnimationView lottie = findViewById(R.id.lottieSplash);
 
         // Listener para detectar el final de la animación
@@ -25,9 +24,13 @@ public class SplashActivity extends ComponentActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 // Temporizador de 2 segundos antes de pasar al logo estático
-                new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                    mostrarLogoEstatico();
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mostrarLogoEstatico();
+                    }
                 }, 2000);
+
             }
 
         });
@@ -45,10 +48,15 @@ public class SplashActivity extends ComponentActivity {
         }
 
         // Iniciar MainActivity
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            finish();
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
         }, 1500);
+
     }
 }
 

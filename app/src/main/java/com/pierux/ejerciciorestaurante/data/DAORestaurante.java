@@ -22,6 +22,7 @@ public class DAORestaurante {
 
     // Insertar nuevo restaurante
     public long insertarRestaurante(String nombre, String telefono, String direccion, float estrellas, boolean visitado, String categoria, String comentario) {
+
         SQLiteDatabase db = admin.getWritableDatabase();
         ContentValues registro = new ContentValues();
         registro.put("nombre", nombre);
@@ -31,6 +32,7 @@ public class DAORestaurante {
         registro.put("visitado", visitado ? 1 : 0);
         registro.put("categoria", categoria);
         registro.put("comentario", comentario);
+
         long id = db.insert("restaurantes", null, registro);
         db.close();
         return id;
@@ -59,6 +61,7 @@ public class DAORestaurante {
 
      private int obtenerImagenPorCategoria(Cursor puntero) {
         String categoria = puntero.getString(puntero.getColumnIndexOrThrow("categoria"));
+
         return "Bar".equals(categoria) ? R.drawable.bar : R.drawable.img_restuarante1;
     }
 

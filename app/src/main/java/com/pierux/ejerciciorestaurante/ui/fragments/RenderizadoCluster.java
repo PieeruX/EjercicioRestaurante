@@ -9,10 +9,19 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.MarkerOptions;
+//Librerias para la creacion automatica del cluster
 import com.google.maps.android.clustering.ClusterManager;
 import com.google.maps.android.clustering.view.DefaultClusterRenderer;
+
 import com.pierux.ejerciciorestaurante.R;
 import com.pierux.ejerciciorestaurante.model.ItemsCard;
+
+/**
+ * Personaliza la apariencia de los marcadores en el mapa.
+ * 1. Define iconos distintos para restaurantes "visitados" y "no visitados".
+ * 2. Gestiona la creación de clústeres (de forma automática a través de su libreria) cuando muchos
+ *    marcadores están juntos, para que sea más legible.
+ */
 
 class RenderizadorCluster extends DefaultClusterRenderer<ItemsCard> {
 

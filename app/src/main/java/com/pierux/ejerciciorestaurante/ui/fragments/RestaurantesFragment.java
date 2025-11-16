@@ -36,7 +36,7 @@ public class RestaurantesFragment extends Fragment {
             cambiarFragment(new VisitadosFragment());
         }
 
-        // Añadimos un "oyente" que se activará cada vez que se seleccione un botón.
+        // Listener que se activará cada vez que el usuario seleccione un botón.
         toggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
 
             if (isChecked) {
@@ -59,15 +59,19 @@ public class RestaurantesFragment extends Fragment {
         }
     }
 
+    /**
+     * Método que reemplaza un fragmento por otro y lo muestra
+      * @param fragment
+     */
     private void cambiarFragment(Fragment fragment) {
         // Usamos getChildFragmentManager() porque estamos manejando fragmentos DENTRO de otro fragmento.
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        FragmentTransaction transicion = getChildFragmentManager().beginTransaction();
 
         // Reemplaza lo que haya en el contenedor 'fragment_container' con el nuevo fragmento.
-        transaction.replace(R.id.fragment_container, fragment);
+        transicion.replace(R.id.fragment_container, fragment);
 
         // Confirma la transacción para que el cambio sea visible.
-        transaction.commit();
+        transicion.commit();
     }
 
 
