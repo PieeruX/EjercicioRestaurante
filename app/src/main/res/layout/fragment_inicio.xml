@@ -40,7 +40,7 @@
             android:id="@+id/imgVLogo"
             android:layout_width="170dp"
             android:layout_height="170dp"
-            android:src="@mipmap/logo"
+            android:src="@drawable/logo"
             android:layout_gravity="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

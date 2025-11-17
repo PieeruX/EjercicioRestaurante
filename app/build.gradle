@@ -62,7 +62,7 @@ dependencies {
     // Lottie Animations
     implementation "com.airbnb.android:lottie:6.4.0"
 
-    // Google Maps y Location
+    // Google Maps y Geolocalizacion
     implementation 'com.google.android.gms:play-services-maps:18.2.0'
     implementation 'com.google.android.gms:play-services-location:21.3.0'
 
