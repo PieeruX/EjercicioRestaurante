@@ -36,7 +36,7 @@ android {
 
 secrets {
     // Archivo con clave API
-    propertiesFileName = "secrets.properties"
+    propertiesFileName = "local.properties"
 
     // Archivo de respaldo
     defaultPropertiesFileName = "local.defaults.properties"
