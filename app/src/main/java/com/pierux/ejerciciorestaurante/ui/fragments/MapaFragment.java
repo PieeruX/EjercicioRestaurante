@@ -39,8 +39,11 @@ import android.location.Address;
 import android.location.Geocoder;
 import com.google.maps.android.clustering.ClusterManager;
 
+import com.pierux.ejerciciorestaurante.adapters.RestauranteAdapter;
 import com.pierux.ejerciciorestaurante.data.DAORestaurante;
 import com.pierux.ejerciciorestaurante.model.ItemsCard;
+import com.pierux.ejerciciorestaurante.ui.activities.DetalleActivity;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -58,6 +61,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
     private TextView nombreRestaurante, direccionRestaurante, telefonoRestaurante;
     private RatingBar estrellas;
     private Button btnMaps;
+
 
 
     @Override
@@ -101,6 +105,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
 
     }
 
@@ -157,8 +162,6 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
                     }
                 }
             }
-
-
         }
 
     }
@@ -180,8 +183,7 @@ public class MapaFragment extends Fragment implements OnMapReadyCallback, Cluste
                 latLng =  new LatLng(address.getLatitude(), address.getLongitude());
             }
         } catch (IOException e) {
-            // Mostramos en LogCat
-            Log.e(TAG, "Error de geocodificación para la dirección: " + direccion, e);
+
         }
 
         // Si no se encuentra la dirección o hay un error, devuelve null.

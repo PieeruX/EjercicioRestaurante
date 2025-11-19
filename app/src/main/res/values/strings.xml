@@ -27,9 +27,9 @@
     <string name="btn_form_guardar">Guardar</string>
     <string name="btn_form_cancelar">Cancelar</string>
     <string name="tittle_form">Formulario de Restaurante</string>
-    <string name="hint_form_nombre">Nombre restuarante</string>
-    <string name="hint_form_tlfn">Telefono</string>
-    <string name="hint_form_direccion">Dirección</string>
+    <string name="hint_form_nombre">*Nombre restuarante</string>
+    <string name="hint_form_tlfn">*Telefono</string>
+    <string name="hint_form_direccion">*Dirección</string>
     <string name="rbtn_form_restaurante">Restuarante</string>
     <string name="rbtn_form_bar">Bar</string>
     <string name="txt_form_switch">Visitado</string>

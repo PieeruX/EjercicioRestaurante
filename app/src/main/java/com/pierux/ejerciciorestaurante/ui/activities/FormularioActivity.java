@@ -156,18 +156,21 @@ public class FormularioActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!etNombre.getText().toString().strip().isEmpty()){
+                boolean nombreVacio = etNombre.getText().toString().strip().isEmpty();
+                boolean telefonoVacio = etTelefono.getText().toString().strip().isEmpty();
+                boolean direccionVacio = etDireccion.getText().toString().strip().isEmpty();
+                if (!nombreVacio && !telefonoVacio && !direccionVacio){
                     if (esEdicion){
                         editarDatos();
-                        Toast.makeText(FormularioActivity.this, "Restaurante actualizado correctamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FormularioActivity.this, "Lugar actualizado correctamente", Toast.LENGTH_SHORT).show();
                     }else{
                         guardarDatos();
-                        Toast.makeText(FormularioActivity.this, "Restaurante guardado correctamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FormularioActivity.this, "Lugar guardado correctamente", Toast.LENGTH_SHORT).show();
                     }
                     finish();
 
                 }else{
-                    Toast.makeText(FormularioActivity.this, "Nombre no puede estar vacío", Toast.LENGTH_LONG).show();
+                    Toast.makeText(FormularioActivity.this, "Rellene los campos obligatorios(*)", Toast.LENGTH_LONG).show();
                 }
 
 

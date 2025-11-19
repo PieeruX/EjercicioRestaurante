@@ -131,7 +131,6 @@ public class DetalleActivity extends AppCompatActivity {
 
     }
 
-
     private void solicitarPermiso() {
         requestPermissions(new String[]{CALL_PHONE}, 100);
 
