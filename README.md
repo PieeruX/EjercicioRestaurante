@@ -36,7 +36,8 @@ Aplicación de Android para gestionar y visualizar una lista de restaurantes y b
 ## 📸 Capturas de Pantalla
 
 
-| Lista de Restaurantes | Mapa Interactivo | Formulario de Edición |
-| :---: | :---: | :---: |
+| Pantalla Inicio || Agregar nuevo Lugar || Lista de Restaurantes | Mapa Interactivo | Formulario de Edición |
+| ![inicio](https://github.com/user-attachments/assets/9100397b-541c-4101-b9b9-04c1ba53fa1b) | :---: | :---: |
+
 
 _Desarrollado con ❤️ por Piera Merlo_
