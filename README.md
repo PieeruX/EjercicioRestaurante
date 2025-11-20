@@ -34,11 +34,11 @@ Aplicación de Android para gestionar y visualizar una lista de restaurantes y b
 
 ## 📸 Capturas de Pantalla
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b3d0c32a-9616-4f2a-bb2f-befe8e5e438e" width="198">
-   <img src="https://github.com/user-attachments/assets/d3a2454e-d720-4aad-807f-5a5b0b4f1848" width="198">
-   <img src="https://github.com/user-attachments/assets/1cfef988-ac11-4da4-bd4c-e3e94024f282" width="198">
-   <img src="https://github.com/user-attachments/assets/20c83aa7-4177-4c02-9da1-f44e6c9056ff" width="198">
-   <img src="https://github.com/user-attachments/assets/d63e4b9e-6d19-417b-86f7-73e2bc2ea76e" width="198">
+  <img src="https://github.com/user-attachments/assets/b3d0c32a-9616-4f2a-bb2f-befe8e5e438e" width="19"0>
+   <img src="https://github.com/user-attachments/assets/d3a2454e-d720-4aad-807f-5a5b0b4f1848" width="190">
+   <img src="https://github.com/user-attachments/assets/1cfef988-ac11-4da4-bd4c-e3e94024f282" width="190">
+   <img src="https://github.com/user-attachments/assets/20c83aa7-4177-4c02-9da1-f44e6c9056ff" width="190">
+   <img src="https://github.com/user-attachments/assets/d63e4b9e-6d19-417b-86f7-73e2bc2ea76e" width="190">
   <br>
   <em>Pantalla de inicio, Agregar nuevo lugar, Lista de Lugares, Editar Lugar, Mapa</em>
 </p>
